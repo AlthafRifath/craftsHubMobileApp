@@ -1,26 +1,27 @@
 import 'package:craftshubapp/models/product.dart';
+import 'package:flutter/material.dart';
 
-class Shop {
+class Shop extends ChangeNotifier {
   // products for sale
   final List<Product> _shop = [
     Product(
       name: 'Product 1',
-      price: '100',
+      price: 99.99,
       description: 'This is a product description',
     ),
     Product(
       name: 'Product 2',
-      price: '200',
+      price: 199.99,
       description: 'This is a product description',
     ),
     Product(
       name: 'Product 3',
-      price: '300',
+      price: 299.99,
       description: 'This is a product description',
     ),
     Product(
       name: 'Product 4',
-      price: '400',
+      price: 399.99,
       description: 'This is a product description',
     ),
   ];
@@ -37,11 +38,13 @@ class Shop {
   // add item to cart
   void addToCart(Product item) {
     _cart.add(item);
+    notifyListeners();
   }
 
   // remove item from cart
   void removeFromCart(Product item) {
     _cart.remove(item);
+    notifyListeners();
   }
 
 }

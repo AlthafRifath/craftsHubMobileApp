@@ -1,11 +1,18 @@
+import 'package:craftshubapp/models/shop.dart';
 import 'package:craftshubapp/pages/cart_page.dart';
 import 'package:craftshubapp/pages/intro_page.dart';
 import 'package:craftshubapp/pages/shop_page.dart';
 import 'package:craftshubapp/themes/light_mode.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => Shop(),
+      child: const MyApp(),
+    )
+  );
 }
 
 class MyApp extends StatelessWidget {
