@@ -2,7 +2,7 @@ import 'package:craftshubapp/components/my_button.dart';
 import 'package:flutter/material.dart';
 
 class IntroPage extends StatelessWidget {
-  const IntroPage({Key? key}) : super(key: key); // Ensure key is passed to super
+  const IntroPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +44,8 @@ class IntroPage extends StatelessWidget {
             const SizedBox(height: 25),
 
             // button
-            MyButton(onTap: () {}, child: const Icon(Icons.arrow_forward)
+            MyButton(onTap: () => Navigator.pushNamed(context, '/shop_page'),
+            child: const Icon(Icons.arrow_forward),
             ),
           ],
         ),

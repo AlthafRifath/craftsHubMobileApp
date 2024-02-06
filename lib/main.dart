@@ -1,4 +1,5 @@
 import 'package:craftshubapp/pages/intro_page.dart';
+import 'package:craftshubapp/pages/shop_page.dart';
 import 'package:craftshubapp/themes/light_mode.dart';
 import 'package:flutter/material.dart';
 
@@ -16,6 +17,10 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: IntroPage(),
       theme: lightmode,
+      routes: {
+        '/intro_page': (context) => const IntroPage(),
+        '/shop_page': (context) => const ShopPage(),
+      },
     );
   }
 }
