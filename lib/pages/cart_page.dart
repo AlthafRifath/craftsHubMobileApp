@@ -1,3 +1,4 @@
+import 'package:craftshubapp/components/my_button.dart';
 import 'package:craftshubapp/models/product.dart';
 import 'package:craftshubapp/models/shop.dart';
 import 'package:flutter/material.dart';
@@ -36,6 +37,16 @@ class CartPage extends StatelessWidget {
     );
   }
 
+  // user pressed the pay button
+  void payButtonPressed(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (context) => const AlertDialog(
+        content: Text('Payment Successful!'),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     // get access to the cart
@@ -53,25 +64,34 @@ class CartPage extends StatelessWidget {
         children: [
           // cart list
           Expanded(
-            child: ListView.builder(
-              itemCount: cart.length,
-              itemBuilder: (context, index) {
-              // get induviduals item in cart
-              final item = cart[index];
+            child: cart.isEmpty
+                ? const Center(child: Text("Your Cart is empty..."))
+                : ListView.builder(
+                    itemCount: cart.length,
+                    itemBuilder: (context, index) {
+                      // get induviduals item in cart
+                      final item = cart[index];
 
-              // return as a cart tile UI
-              return ListTile(
-                title: Text(item.name),
-                subtitle: Text(item.price.toString()),
-                trailing: IconButton(
-                  icon: const Icon(Icons.remove),
-                  onPressed: () => removeItemFromCart(context, item),
-                ),
-              );
-            }),
+                      // return as a cart tile UI
+                      return ListTile(
+                        title: Text(item.name),
+                        subtitle: Text(item.price.toString()),
+                        trailing: IconButton(
+                          icon: const Icon(Icons.remove),
+                          onPressed: () => removeItemFromCart(context, item),
+                        ),
+                      );
+                    }),
           ),
 
           // pay button
+          Padding(
+            padding: const EdgeInsets.all(50),
+            child: MyButton(
+              onTap: () => payButtonPressed(context),
+              child: const Text("PAY NOW"),
+            ),
+          )
         ],
       ),
     );

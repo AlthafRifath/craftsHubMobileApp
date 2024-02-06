@@ -8,21 +8,28 @@ class Shop extends ChangeNotifier {
       name: 'Product 1',
       price: 99.99,
       description: 'This is a product description',
+      imagePath: 'assets/GG1.png'
     ),
     Product(
       name: 'Product 2',
       price: 199.99,
       description: 'This is a product description',
+      imagePath: 'assets/JW1.png'
+
     ),
     Product(
       name: 'Product 3',
       price: 299.99,
       description: 'This is a product description',
+      imagePath: 'assets/PT2.png'
+
     ),
     Product(
       name: 'Product 4',
       price: 399.99,
       description: 'This is a product description',
+      imagePath: 'assets/WD1.png'
+
     ),
   ];
 
