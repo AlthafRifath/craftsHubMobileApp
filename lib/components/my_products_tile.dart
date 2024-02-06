@@ -1,5 +1,7 @@
+import 'package:craftshubapp/models/shop.dart';
 import 'package:flutter/material.dart';
 import 'package:craftshubapp/models/product.dart';
+import 'package:provider/provider.dart';
 
 class MyProductsTile extends StatelessWidget {
   final Product product;
@@ -8,6 +10,37 @@ class MyProductsTile extends StatelessWidget {
     super.key,
     required this.product,
   });
+
+  // add to cart button pressed
+  void addToCart(BuildContext context) {
+    // show a dialog box to ask user to confirm adding to cart
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        content: Text('Add this item to your cart?'),
+        actions: [
+          // cancel button
+          MaterialButton(
+            onPressed: () => Navigator.pop(context),
+            child: const Text('Cancel'),
+          ),
+
+          // yes button
+          MaterialButton(
+            onPressed: () {
+
+              // pop the dialog box
+              Navigator.pop(context);
+
+              // add to cart
+              context.read<Shop>().addToCart(product);
+            },
+            child: const Text('Yes'),
+          )
+        ],
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -61,7 +94,25 @@ class MyProductsTile extends StatelessWidget {
                 ),
 
                 // product price + add to cart button
-                Text(product.price.toStringAsFixed(2)),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    // product price
+                    Text('\$' + product.price.toStringAsFixed(2)),
+
+                    // add to cart button
+                    Container(
+                      decoration: BoxDecoration(
+                        color: Theme.of(context).colorScheme.secondary,
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: IconButton(
+                        onPressed: () => addToCart(context),
+                        icon: const Icon(Icons.add),
+                      ),
+                    )
+                  ],
+                ),
               ],
             )
           ]),
