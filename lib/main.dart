@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
         '/intro_page': (context) => const IntroPage(),
         '/shop_page': (context) => const ShopPage(),
         '/cart_page': (context) => const CartPage(),
-        '/login_page': (context) => const LoginPage(),
+        '/login_page': (context) => LoginPage(),
       },
     );
   }
