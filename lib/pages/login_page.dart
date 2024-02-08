@@ -1,3 +1,4 @@
+import 'package:craftshubapp/components/my_textfield.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatelessWidget {
@@ -7,26 +8,51 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[300],
-      body: Column(
-        children: [
-          // logo
+      body: SafeArea(
+        child: Center(
+          child: Column(
+            children: [
+              const SizedBox(height: 50),
 
-          // welcome message
+              // logo
+               const Icon(
+                Icons.lock,
+                size: 100,
+              ),
+              
+              const SizedBox(height: 50),
+          
+              // welcome message
+              Text(
+                'Welcome Back you\'ve been missed!',
+                style: TextStyle(
+                  color: Colors.grey[700],
+                  fontSize: 16,
+                ),
+              ),
 
-          // username textfield
+              const SizedBox(height: 25),
+          
+              // username textfield
+              MyTextField(),
 
-          // password textfield
-
-          // forgot password
-
-          // sign in button
-
-          // or continue with
-
-          // google + apple sign in buttons
-
-          // not a member? register now 
-        ],
+              const SizedBox(height: 10),
+          
+              // password textfield
+              MyTextField(),
+          
+              // forgot password
+          
+              // sign in button
+          
+              // or continue with
+          
+              // google + apple sign in buttons
+          
+              // not a member? register now 
+            ],
+          ),
+        ),
       ),
     );
   }
