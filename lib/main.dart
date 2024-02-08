@@ -1,6 +1,7 @@
 import 'package:craftshubapp/models/shop.dart';
 import 'package:craftshubapp/pages/cart_page.dart';
 import 'package:craftshubapp/pages/intro_page.dart';
+import 'package:craftshubapp/pages/register_page.dart';
 import 'package:craftshubapp/pages/shop_page.dart';
 import 'package:craftshubapp/themes/light_mode.dart';
 import 'package:flutter/material.dart';
@@ -31,6 +32,7 @@ class MyApp extends StatelessWidget {
         '/shop_page': (context) => const ShopPage(),
         '/cart_page': (context) => const CartPage(),
         '/login_page': (context) => LoginPage(),
+        '/register_page': (context) => RegisterPage(),
       },
     );
   }

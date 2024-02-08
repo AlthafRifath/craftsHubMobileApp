@@ -142,7 +142,7 @@ class LoginPage extends StatelessWidget {
                   ),
                   GestureDetector(
                     onTap: () {
-                      Navigator.pushNamed(context, '');
+                      Navigator.pushNamed(context, '/register_page');
                     },
                     child: const Text(
                       'Register now',
