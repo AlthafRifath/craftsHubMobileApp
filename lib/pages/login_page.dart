@@ -1,6 +1,6 @@
-import 'package:craftshubapp/components/my_button.dart';
 import 'package:craftshubapp/components/my_signup_page_button.dart';
 import 'package:craftshubapp/components/my_textfield.dart';
+import 'package:craftshubapp/components/square.tile.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatelessWidget {
@@ -20,6 +20,7 @@ class LoginPage extends StatelessWidget {
       body: SafeArea(
         child: Center(
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const SizedBox(height: 50),
 
@@ -78,7 +79,9 @@ class LoginPage extends StatelessWidget {
           
               // sign in button
               MySignUpPageButton(
-                onTap: signUserIn,
+                onTap: () {
+                  Navigator.pushNamed(context, '/intro_page');
+                },
               ),
 
               const SizedBox(height: 50),
@@ -110,10 +113,47 @@ class LoginPage extends StatelessWidget {
                   ],
                 ),
               ),
+
+              const SizedBox(height: 50),
           
               // google + apple sign in buttons
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: const [
+                  // google button
+                  SqareTile(imagePath: 'assets/google.png'),
+
+                  const SizedBox(width: 10),
+
+                  // apple button
+                  SqareTile(imagePath: 'assets/apple.png')
+                ],
+              ),
+
+              const SizedBox(height: 50),
           
               // not a member? register now 
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text(
+                    'Not a member? ',
+                    style: TextStyle(color: Colors.grey),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pushNamed(context, '');
+                    },
+                    child: const Text(
+                      'Register now',
+                      style: TextStyle(
+                        color: Colors.blue,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ],
           ),
         ),
