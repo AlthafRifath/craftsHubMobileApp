@@ -5,6 +5,7 @@ import 'package:craftshubapp/pages/shop_page.dart';
 import 'package:craftshubapp/themes/light_mode.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:craftshubapp/pages/login_page.dart';
 
 void main() {
   runApp(
@@ -23,12 +24,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: IntroPage(),
+      home: LoginPage(),
       theme: lightmode,
       routes: {
         '/intro_page': (context) => const IntroPage(),
         '/shop_page': (context) => const ShopPage(),
         '/cart_page': (context) => const CartPage(),
+        '/login_page': (context) => const LoginPage(),
       },
     );
   }
