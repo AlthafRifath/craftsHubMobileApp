@@ -3,6 +3,7 @@ import 'package:craftshubapp/components/my_products_tile.dart';
 import 'package:craftshubapp/models/shop.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:craftshubapp/components/my_navigation_bar.dart';
 
 class ShopPage extends StatelessWidget {
   const ShopPage({Key? key}) : super(key: key);
@@ -42,6 +43,8 @@ class ShopPage extends StatelessWidget {
             ),
           ),
 
+          const SizedBox(height: 15),
+
           //product list
           SizedBox(
             height: 550,
@@ -58,7 +61,18 @@ class ShopPage extends StatelessWidget {
               },
             ),
           ),
+          const SizedBox(height: 25),
         ],
+      ),
+      bottomNavigationBar: MyNavigationBar(
+        selectedIndex: 0,
+        onItemSelected: (int index) {
+          if (index == 1) {
+            Navigator.pushNamed(context, '');
+          } else if (index == 2) {
+            Navigator.pushNamed(context, '');
+          }
+        },
       )
     );
   }
