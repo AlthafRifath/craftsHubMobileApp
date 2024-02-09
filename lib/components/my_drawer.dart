@@ -45,6 +45,19 @@ class MyDrawer extends StatelessWidget {
                   Navigator.pushNamed(context, '/cart_page');
                 },
               ),
+
+              // settings tile
+              MyListTile(
+                text: "Settings",
+                icon: Icons.settings,
+                onTap: () {
+                  // pop drawer first
+                  Navigator.pop(context);
+
+                  // navigate to settings page
+                  Navigator.pushNamed(context, '/settings_page');
+                },
+              ),
             ],
           ),
 
