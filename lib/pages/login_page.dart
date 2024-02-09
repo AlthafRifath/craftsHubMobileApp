@@ -16,7 +16,7 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[300],
+      backgroundColor: Theme.of(context).colorScheme.background,
       body: SafeArea(
         child: Center(
           child: Column(
@@ -36,7 +36,7 @@ class LoginPage extends StatelessWidget {
               Text(
                 'Welcome Back you\'ve been missed!',
                 style: TextStyle(
-                  color: Colors.grey[700],
+                  color: Theme.of(context).colorScheme.onBackground,
                   fontSize: 16,
                 ),
               ),
@@ -69,7 +69,7 @@ class LoginPage extends StatelessWidget {
                   children: [
                     Text(
                       'Forgot Password?',
-                      style: TextStyle(color: Colors.grey[600]),
+                      style: TextStyle(color: Theme.of(context).colorScheme.onBackground.withOpacity(0.6)),
                     ),
                   ],
                 ),
@@ -94,7 +94,7 @@ class LoginPage extends StatelessWidget {
                     Expanded(
                       child: Divider(
                         thickness: 0.5,
-                        color: Colors.grey[400],
+                        color: Theme.of(context).colorScheme.onBackground.withOpacity(0.5),
                       ),
                     ),
                     Padding(
@@ -107,7 +107,7 @@ class LoginPage extends StatelessWidget {
                     Expanded(
                       child: Divider(
                         thickness: 0.5,
-                        color: Colors.grey[400],
+                        color: Theme.of(context).colorScheme.onBackground.withOpacity(0.5),
                       ),
                     ),
                   ],

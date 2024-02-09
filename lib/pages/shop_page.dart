@@ -43,7 +43,7 @@ class ShopPage extends StatelessWidget {
             ),
           ),
 
-          const SizedBox(height: 15),
+          const SizedBox(height: 20),
 
           //product list
           SizedBox(

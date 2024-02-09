@@ -12,10 +12,11 @@ class MyNavigationBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return BottomNavigationBar(
-      backgroundColor: Colors.grey[300],
-      selectedItemColor: Colors.black,
-      unselectedItemColor: Colors.grey.shade600,
+      backgroundColor: theme.colorScheme.background,
+      selectedItemColor: Colors.grey.shade600,
+      unselectedItemColor: theme.colorScheme.onSurface.withOpacity(0.6),
       currentIndex: selectedIndex,
       onTap: onItemSelected,
       items: const [

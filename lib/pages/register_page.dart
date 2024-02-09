@@ -18,7 +18,7 @@ class RegisterPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[300],
+      backgroundColor: Theme.of(context).colorScheme.background,
       body: SafeArea(
         child: Center(
           child: SingleChildScrollView( // Makes the page scrollable
@@ -36,10 +36,10 @@ class RegisterPage extends StatelessWidget {
                 const SizedBox(height: 50),
             
                 // welcome message
-                const Text(
+                Text(
                   'Join us, start crafting today!',
                   style: TextStyle(
-                    color: Colors.grey,
+                    color: Theme.of(context).colorScheme.onBackground,
                     fontSize: 16,
                   ),
                 ),
