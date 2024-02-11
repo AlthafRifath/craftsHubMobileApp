@@ -21,20 +21,21 @@ class RegisterPage extends StatelessWidget {
       backgroundColor: Theme.of(context).colorScheme.background,
       body: SafeArea(
         child: Center(
-          child: SingleChildScrollView( // Makes the page scrollable
+          child: SingleChildScrollView(
+            // Makes the page scrollable
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const SizedBox(height: 50),
 
                 // logo
-                const Icon(
-                  Icons.person_add,
-                  size: 100,
+                Image.asset(
+                  'assets/LogoWithoutName.png',
+                  height: 100,
                 ),
-                
+
                 const SizedBox(height: 50),
-            
+
                 // welcome message
                 Text(
                   'Join us, start crafting today!',
@@ -45,7 +46,7 @@ class RegisterPage extends StatelessWidget {
                 ),
 
                 const SizedBox(height: 25),
-            
+
                 // username textfield
                 MyTextField(
                   controller: usernameController,
@@ -54,7 +55,7 @@ class RegisterPage extends StatelessWidget {
                 ),
 
                 const SizedBox(height: 10),
-            
+
                 // email textfield
                 MyTextField(
                   controller: emailController,
@@ -63,7 +64,7 @@ class RegisterPage extends StatelessWidget {
                 ),
 
                 const SizedBox(height: 10),
-            
+
                 // password textfield
                 MyTextField(
                   controller: passwordController,
@@ -72,18 +73,19 @@ class RegisterPage extends StatelessWidget {
                 ),
 
                 const SizedBox(height: 25),
-            
+
                 // register button
                 MySignUpPageButton(
                   onTap: () {
                     // Implement your registration logic here
                     // For example: registerUser();
-                    Navigator.pushNamed(context, '/intro_page'); // Adjust as needed
+                    Navigator.pushNamed(
+                        context, '/intro_page'); // Adjust as needed
                   },
                 ),
 
                 const SizedBox(height: 50),
-            
+
                 // already a member? sign in
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -94,7 +96,8 @@ class RegisterPage extends StatelessWidget {
                     ),
                     GestureDetector(
                       onTap: () {
-                        Navigator.pop(context); // Goes back to the previous page
+                        Navigator.pop(
+                            context); // Goes back to the previous page
                       },
                       child: const Text(
                         'Sign in',

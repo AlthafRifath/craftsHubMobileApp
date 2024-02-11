@@ -8,74 +8,71 @@ class MyDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Drawer(
       backgroundColor: Theme.of(context).colorScheme.background,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Column(
-            children: [
-              // drawer header: logo
-              DrawerHeader(
-                child: Center(
-                  child: Icon(
-                    Icons.shopping_bag,
-                    size: 72,
-                    color: Theme.of(context).colorScheme.inversePrimary,
-                  ),
+      child:
+          Column(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+        Column(
+          children: [
+            // drawer header: logo
+            DrawerHeader(
+              child: Center(
+                child: Image.asset(
+                  'assets/LogoWithoutName.png',
+                  height: 100,
                 ),
               ),
+            ),
 
-              const SizedBox(height: 25),
+            const SizedBox(height: 25),
 
-              //shop tile
-              MyListTile(
-                text: "Shop",
-                icon: Icons.home,
-                onTap: () => Navigator.pop(context),
-              ),
+            //shop tile
+            MyListTile(
+              text: "Shop",
+              icon: Icons.home,
+              onTap: () => Navigator.pop(context),
+            ),
 
-              // cart tile
-              MyListTile(
-                text: "Cart",
-                icon: Icons.shopping_cart,
-                onTap: () {
-                  // pop drawer first
-                  Navigator.pop(context);
+            // cart tile
+            MyListTile(
+              text: "Cart",
+              icon: Icons.shopping_cart,
+              onTap: () {
+                // pop drawer first
+                Navigator.pop(context);
 
-                  // navigate to cart page
-                  Navigator.pushNamed(context, '/cart_page');
-                },
-              ),
+                // navigate to cart page
+                Navigator.pushNamed(context, '/cart_page');
+              },
+            ),
 
-              // settings tile
-              MyListTile(
-                text: "Settings",
-                icon: Icons.settings,
-                onTap: () {
-                  // pop drawer first
-                  Navigator.pop(context);
+            // settings tile
+            MyListTile(
+              text: "Settings",
+              icon: Icons.settings,
+              onTap: () {
+                // pop drawer first
+                Navigator.pop(context);
 
-                  // navigate to settings page
-                  Navigator.pushNamed(context, '/settings_page');
-                },
-              ),
-            ],
-          ),
+                // navigate to settings page
+                Navigator.pushNamed(context, '/settings_page');
+              },
+            ),
+          ],
+        ),
 
-          // exit shop tile
-          Padding(
-            padding: const EdgeInsets.only(bottom: 25.0),
-            child: MyListTile(
-              text: "Exit",
-              icon: Icons.logout,
-              onTap: () => Navigator.pushNamedAndRemoveUntil(
-                context,
-                '/intro_page',
-                (route) => false,
-              ),
+        // exit shop tile
+        Padding(
+          padding: const EdgeInsets.only(bottom: 25.0),
+          child: MyListTile(
+            text: "Exit",
+            icon: Icons.logout,
+            onTap: () => Navigator.pushNamedAndRemoveUntil(
+              context,
+              '/intro_page',
+              (route) => false,
             ),
           ),
-        ]
-      ),
+        ),
+      ]),
     );
   }
 }

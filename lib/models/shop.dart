@@ -5,29 +5,29 @@ class Shop extends ChangeNotifier {
   // products for sale
   final List<Product> _shop = [
     Product(
-      name: 'Product 1',
-      price: 99.99,
-      description: 'This is a product description',
+      name: 'Glass Bliss Bowl',
+      price: 39.99,
+      description: 'Immerse yourself in the delicate beauty of our Glass Bliss Bowl. Handcrafted with precision.',
       imagePath: 'assets/GG1.png'
     ),
     Product(
-      name: 'Product 2',
-      price: 199.99,
-      description: 'This is a product description',
+      name: 'Ethereal Necklace',
+      price: 49.99,
+      description: 'Introducing our Ethereal Necklace Collection, where each piece tells a story of craftsmanship and elegance.',
       imagePath: 'assets/JW1.png'
 
     ),
     Product(
-      name: 'Product 3',
-      price: 299.99,
-      description: 'This is a product description',
+      name: 'Mystic Vase Ensemble',
+      price: 59.99,
+      description: 'Transform your space with our Mystic Vase Ensemble. Each vase is a masterpiece, showcasing a blend of mystique and sophistication.',
       imagePath: 'assets/PT2.png'
 
     ),
     Product(
-      name: 'Product 4',
-      price: 399.99,
-      description: 'This is a product description',
+      name: 'Artisans Touch Wooden Cutting Board',
+      price: 29.99,
+      description: 'Experience the Artisans Touch with our Wooden Cutting Board.',
       imagePath: 'assets/WD1.png'
 
     ),

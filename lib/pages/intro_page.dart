@@ -8,16 +8,15 @@ class IntroPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
-      body: Center( 
+      body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             // logo
-            Icon(
-              Icons.shopping_bag,
-              size: 72,
-              color: Theme.of(context).colorScheme.inversePrimary,
+            Image.asset(
+              'assets/LogoWithoutName.png',
+              height: 110,
             ),
 
             const SizedBox(height: 25),
@@ -44,8 +43,9 @@ class IntroPage extends StatelessWidget {
             const SizedBox(height: 25),
 
             // button
-            MyButton(onTap: () => Navigator.pushNamed(context, '/shop_page'),
-            child: const Icon(Icons.arrow_forward),
+            MyButton(
+              onTap: () => Navigator.pushNamed(context, '/shop_page'),
+              child: const Icon(Icons.arrow_forward),
             ),
           ],
         ),
