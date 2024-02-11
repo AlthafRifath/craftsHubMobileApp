@@ -15,7 +15,7 @@ class MyNavigationBar extends StatelessWidget {
     final theme = Theme.of(context);
     return BottomNavigationBar(
       backgroundColor: theme.colorScheme.background,
-      selectedItemColor: Colors.grey.shade600,
+      selectedItemColor: Colors.grey.shade700,
       unselectedItemColor: theme.colorScheme.onSurface.withOpacity(0.6),
       currentIndex: selectedIndex,
       onTap: onItemSelected,
@@ -25,12 +25,16 @@ class MyNavigationBar extends StatelessWidget {
           label: 'Home',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.search),
-          label: 'Search',
+          icon: Icon(Icons.shopping_cart),
+          label: 'Cart',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.person),
-          label: 'Profile',
+          icon: Icon(Icons.settings),
+          label: 'Settings',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.logout),
+          label: 'Exit',
         ),
       ],
       type: BottomNavigationBarType.fixed,

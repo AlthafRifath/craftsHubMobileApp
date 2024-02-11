@@ -1,4 +1,5 @@
 import 'package:craftshubapp/components/my_button.dart';
+import 'package:craftshubapp/components/my_navigation_bar.dart';
 import 'package:craftshubapp/models/product.dart';
 import 'package:craftshubapp/models/shop.dart';
 import 'package:flutter/material.dart';
@@ -94,6 +95,20 @@ class CartPage extends StatelessWidget {
           )
         ],
       ),
+      bottomNavigationBar: MyNavigationBar(
+        selectedIndex: 0,
+        onItemSelected: (int index) {
+          if (index == 0) {
+            Navigator.pushNamed(context, '/shop_page');
+          } else if (index == 1) {
+            Navigator.pushNamed(context, '/cart_page');
+          } else if (index == 2) {
+            Navigator.pushNamed(context, '/settings_page');
+          } else if (index == 3) {
+            Navigator.pushNamed(context, '/intro_page');
+          }
+        },
+      )
     );
   }
 }
