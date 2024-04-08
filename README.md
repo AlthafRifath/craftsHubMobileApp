@@ -1,7 +1,7 @@
 # CraftsHubApp
 
 <p align="center">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsEruIdr-sJMp0QHJONlNG7vRMDja1SfRP4VOjBPELCQ&s" width="200" alt="Flutter Logo">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Google-flutter-logo.svg/2560px-Google-flutter-logo.svg.png" width="200" alt="Flutter Logo">
     <img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="200" alt="Laravel Logo">
 </p>
 
