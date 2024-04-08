@@ -2,6 +2,7 @@
 
 <p align="center">
     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsEruIdr-sJMp0QHJONlNG7vRMDja1SfRP4VOjBPELCQ&s" width="200" alt="Flutter Logo">
+    <img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="200" alt="Laravel Logo">
 </p>
 
 CraftsHubApp brings the vibrant marketplace of Crafts Hub to your mobile device, offering a seamless and engaging platform for discovering and purchasing unique, handcrafted goods from local artisans. This Flutter application extends the Laravel-based web platform into a mobile realm, emphasizing sustainability, community, and the art of craftsmanship.
