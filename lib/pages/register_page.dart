@@ -1,18 +1,63 @@
+import 'package:craftshubapp/helper/helper_functions.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:craftshubapp/components/my_textfield.dart';
 import 'package:craftshubapp/components/my_signup_page_button.dart';
 
-class RegisterPage extends StatelessWidget {
-  RegisterPage({Key? key}) : super(key: key);
+class RegisterPage extends StatefulWidget {
+  const RegisterPage({Key? key}) : super(key: key);
 
+  @override
+  State<RegisterPage> createState() => _RegisterPageState();
+}
+
+class _RegisterPageState extends State<RegisterPage> {
   // Text editing controllers
   final usernameController = TextEditingController();
+
   final emailController = TextEditingController();
+
   final passwordController = TextEditingController();
 
+  final confirmPasswordController = TextEditingController();
+
   // Register user method
-  void registerUser() {
-    // Implement your user registration logic here
+  void registerUser() async {
+    // show loading circle
+    showDialog(
+      context: context,
+      builder: (context) => const Center(
+        child: CircularProgressIndicator(),
+      ),
+    );
+
+    // make sure passwords match
+    if (passwordController.text != confirmPasswordController.text) {
+      // pop loading circle
+      Navigator.pop(context);
+
+      // show error message
+      displayMessageToUser("Passwords don't match", context);
+    }
+
+    // try creating the user
+    try {
+      // create the user
+      UserCredential ? userCredential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email: emailController.text,
+        password: passwordController.text,
+      );
+
+      //pop loading circle
+      Navigator.pop(context);
+    } on FirebaseAuthException catch (e) {
+      // pop loading circle
+      Navigator.pop(context);
+
+      // show error message
+      displayMessageToUser(e.code, context);
+    }
+
   }
 
   @override
@@ -72,6 +117,15 @@ class RegisterPage extends StatelessWidget {
                   obscureText: true,
                 ),
 
+                const SizedBox(height: 10),
+
+                // confirm password textfield
+                MyTextField(
+                  controller: confirmPasswordController,
+                  hintText: 'Confirm Password',
+                  obscureText: true,
+                ),
+
                 const SizedBox(height: 25),
 
                 // register button
@@ -79,8 +133,7 @@ class RegisterPage extends StatelessWidget {
                   onTap: () {
                     // Implement your registration logic here
                     // For example: registerUser();
-                    Navigator.pushNamed(
-                        context, '/intro_page'); // Adjust as needed
+                    registerUser();
                   },
                 ),
 

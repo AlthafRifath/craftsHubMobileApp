@@ -1,3 +1,4 @@
+import 'package:craftshubapp/firebase_options.dart';
 import 'package:craftshubapp/models/shop.dart';
 import 'package:craftshubapp/pages/cart_page.dart';
 import 'package:craftshubapp/pages/intro_page.dart';
@@ -6,12 +7,15 @@ import 'package:craftshubapp/pages/settings_page.dart';
 import 'package:craftshubapp/pages/shop_page.dart';
 import 'package:craftshubapp/themes/light_mode.dart';
 import 'package:craftshubapp/themes/dark_mode.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:craftshubapp/pages/login_page.dart';
 import 'themes/theme_provider.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(
     MultiProvider(
       providers: [

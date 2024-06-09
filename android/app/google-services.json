@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "197212542807",
+    "project_id": "craftshubapp",
+    "storage_bucket": "craftshubapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:197212542807:android:785478e88352d633491012",
+        "android_client_info": {
+          "package_name": "com.example.craftshubapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAqlZmDNxn6PQcFJXBNymYxpBcDj-HaGTE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
