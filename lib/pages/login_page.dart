@@ -40,6 +40,10 @@ class _LoginPageState extends State<LoginPage> {
       if (context.mounted) {
         Navigator.pop(context);
       }
+
+      // Navigate to the home page
+      Navigator.pushNamed(context, '/shop_page');
+      
     } on FirebaseAuthException catch (e) {
       // pop loading circle
       Navigator.pop(context);

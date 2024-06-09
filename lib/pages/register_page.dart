@@ -50,6 +50,10 @@ class _RegisterPageState extends State<RegisterPage> {
 
       //pop loading circle
       Navigator.pop(context);
+
+      // Navigate to the home page
+      Navigator.pushNamed(context, '/shop_page');
+
     } on FirebaseAuthException catch (e) {
       // pop loading circle
       Navigator.pop(context);
