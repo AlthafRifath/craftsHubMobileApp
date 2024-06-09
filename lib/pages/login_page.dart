@@ -1,17 +1,51 @@
 import 'package:craftshubapp/components/my_signup_page_button.dart';
 import 'package:craftshubapp/components/my_textfield.dart';
 import 'package:craftshubapp/components/square.tile.dart';
+import 'package:craftshubapp/helper/helper_functions.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
-class LoginPage extends StatelessWidget {
-  LoginPage({Key? key}) : super(key: key);
+class LoginPage extends StatefulWidget {
+  const LoginPage({Key? key}) : super(key: key);
 
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
   // text editing controllers
-  final usernameController = TextEditingController();
+  final emailController = TextEditingController();
+
   final passwordController = TextEditingController();
 
   // sign in user method
-  void signUserIn() {}
+  void signUserIn() async {
+    // show loading circle
+    showDialog(
+      context: context,
+      builder: (builder) => const Center(
+        child: CircularProgressIndicator(),
+      ),
+    );
+
+    // try signing in the user
+    try {
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: emailController.text,
+        password: passwordController.text,
+      );
+
+      // pop loading circle
+      if (context.mounted) {
+        Navigator.pop(context);
+      }
+    } on FirebaseAuthException catch (e) {
+      // pop loading circle
+      Navigator.pop(context);
+      displayMessageToUser(e.code, context);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -43,10 +77,10 @@ class LoginPage extends StatelessWidget {
 
               const SizedBox(height: 25),
           
-              // username textfield
+              // email textfield
               MyTextField(
-                controller: usernameController,
-                hintText: 'Username',
+                controller: emailController,
+                hintText: 'Email',
                 obscureText: false,
               ),
 
@@ -80,7 +114,7 @@ class LoginPage extends StatelessWidget {
               // sign in button
               MySignUpPageButton(
                 onTap: () {
-                  Navigator.pushNamed(context, '/intro_page');
+                  signUserIn();
                 },
               ),
 
