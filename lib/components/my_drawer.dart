@@ -24,6 +24,19 @@ class MyDrawer extends StatelessWidget {
 
             const SizedBox(height: 25),
 
+            //profile tile
+            MyListTile(
+              text: "Profile",
+              icon: Icons.person,
+              onTap: () {
+                // pop drawer first
+                Navigator.pop(context);
+
+                // navigate to profile page
+                Navigator.pushNamed(context, '/profile_page');
+              },
+            ),
+
             //shop tile
             MyListTile(
               text: "Shop",

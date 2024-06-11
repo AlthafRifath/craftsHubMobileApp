@@ -6,6 +6,7 @@ import 'package:craftshubapp/pages/register_page.dart';
 import 'package:craftshubapp/pages/settings_page.dart';
 import 'package:craftshubapp/pages/shop_page.dart';
 import 'package:craftshubapp/themes/light_mode.dart';
+import 'package:craftshubapp/pages/profile_page.dart';
 import 'package:craftshubapp/themes/dark_mode.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -45,6 +46,7 @@ class MyApp extends StatelessWidget {
         '/login_page': (context) => LoginPage(),
         '/register_page': (context) => RegisterPage(),
         '/settings_page': (context) => const SettingsPage(),
+        '/profile_page': (context) => const ProfilePage(),
       },
     );
   }
