@@ -10,8 +10,7 @@ class ShopPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-    // access products in shop
+    // Here, you are watching for changes in the Shop model.
     final products = context.watch<Shop>().shop;
 
     return Scaffold(
@@ -32,8 +31,6 @@ class ShopPage extends StatelessWidget {
       body: ListView(
         children: [
           const SizedBox(height: 25),
-
-          // shop subtitle
           Center(
             child: Text(
               "Pick from a selected list of premium products",
@@ -42,42 +39,45 @@ class ShopPage extends StatelessWidget {
               ),
             ),
           ),
-
           const SizedBox(height: 20),
-
-          //product list
-          SizedBox(
-            height: 550,
-            child: ListView.builder(
-              itemCount: products.length,
-              scrollDirection: Axis.horizontal,
-              padding: const EdgeInsets.all(15),
-              itemBuilder: (context, index) {
-                // get each induvidual product from shop
-                final product = products[index];
-        
-                // return as a product tile UI
-                return MyProductsTile(product: product);
-              },
+          // Check if products are not empty, if empty show a loading indicator or placeholder
+          if (products.isEmpty)
+            const CircularProgressIndicator()
+          else
+            SizedBox(
+              height: 550,
+              child: ListView.builder(
+                itemCount: products.length,
+                scrollDirection: Axis.horizontal,
+                padding: const EdgeInsets.all(15),
+                itemBuilder: (context, index) {
+                  final product = products[index];
+                  return MyProductsTile(product: product);  // Assuming MyProductsTile takes a product and displays it correctly
+                },
+              ),
             ),
-          ),
           const SizedBox(height: 25),
         ],
       ),
       bottomNavigationBar: MyNavigationBar(
         selectedIndex: 0,
         onItemSelected: (int index) {
-          if (index == 0) {
-            Navigator.pushNamed(context, '/shop_page');
-          } else if (index == 1) {
-            Navigator.pushNamed(context, '/cart_page');
-          } else if (index == 2) {
-            Navigator.pushNamed(context, '/settings_page');
-          } else if (index == 3) {
-            Navigator.pushNamed(context, '/intro_page');
+          switch (index) {
+            case 0:
+              Navigator.pushNamed(context, '/shop_page');
+              break;
+            case 1:
+              Navigator.pushNamed(context, '/cart_page');
+              break;
+            case 2:
+              Navigator.pushNamed(context, '/settings_page');
+              break;
+            case 3:
+              Navigator.pushNamed(context, '/intro_page');
+              break;
           }
         },
-      )
+      ),
     );
   }
 }

@@ -37,6 +37,7 @@ dependencies:
   contacts_service: any
   permission_handler: any
   flutter_share_me: any
+  http: any
 
 
   # The following adds the Cupertino Icons font to your application.

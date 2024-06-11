@@ -17,7 +17,7 @@ class MyProductsTile extends StatelessWidget {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        content: Text('Add this item to your cart?'),
+        content: const Text('Add this item to your cart?'),
         actions: [
           // cancel button
           MaterialButton(
@@ -41,8 +41,21 @@ class MyProductsTile extends StatelessWidget {
     );
   }
 
+  // Method to shorten product description
+  String _shortenDescription(String description) {
+    const int maxLength = 100; // Set your desired max length here
+    if (description.length > maxLength) {
+      return description.substring(0, maxLength) + '...';
+    } else {
+      return description;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
+    // Construct the full image URL
+    String imageUrl = 'http://192.168.1.2:8000/storage/' + product.imagePath.replaceAll('\\', '/');
+
     return Container(
       decoration: BoxDecoration(
         color: Theme.of(context).colorScheme.primary,
@@ -67,7 +80,12 @@ class MyProductsTile extends StatelessWidget {
                     ),
                     width: double.infinity,
                     padding: const EdgeInsets.all(25),
-                    child: Image.asset(product.imagePath),
+                    child: Image.network(
+                      imageUrl,
+                      errorBuilder: (context, error, stackTrace) {
+                        return const Icon(Icons.error);
+                      },
+                    ),
                   ),
                 ),
 
@@ -86,11 +104,13 @@ class MyProductsTile extends StatelessWidget {
 
                 // product description
                 Text(
-                  product.description,
+                  _shortenDescription(product.description),
                   style: TextStyle(
                     color: Theme.of(context).colorScheme.inversePrimary,
                   ),
                 ),
+
+                const SizedBox(height: 10),
 
                 // product price + add to cart button
                 Row(
