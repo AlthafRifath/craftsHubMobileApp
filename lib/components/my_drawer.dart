@@ -69,6 +69,19 @@ class MyDrawer extends StatelessWidget {
                 Navigator.pushNamed(context, '/settings_page');
               },
             ),
+
+            // contact tile
+            MyListTile(
+              text: "Contact",
+              icon: Icons.contact_phone,
+              onTap: () {
+                // pop drawer first
+                Navigator.pop(context);
+
+                // navigate to contact page
+                Navigator.pushNamed(context, '/contact_page');
+              },
+            ),
           ],
         ),
 
